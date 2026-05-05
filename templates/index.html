@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Matcher Dashboard</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #f5f7fa;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 70%;
+        margin: auto;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    textarea {
+        width: 100%;
+        height: 120px;
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    .upload {
+        margin-top: 15px;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #218838;
+    }
+
+    .card {
+        background: white;
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .rank {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .progress {
+        background: #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 10px 0;
+    }
+
+    .progress-bar {
+        height: 20px;
+        background: #28a745;
+        text-align: center;
+        color: white;
+    }
+
+    .skills {
+        margin-top: 10px;
+    }
+
+    .tag {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 5px;
+        border-radius: 5px;
+        font-size: 12px;
+    }
+
+    .matched {
+        background: #d4edda;
+        color: #155724;
+    }
+
+    .missing {
+        background: #f8d7da;
+        color: #721c24;
+    }
+</style>
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🚀 Resume Matcher Dashboard</h1>
+
+<form action="/matcher" method="POST" enctype="multipart/form-data">
+    
+    <h3>Enter Job Description</h3>
+    <textarea name="job_description" required></textarea>
+
+    <div class="upload">
+        <h3>Upload Resumes</h3>
+        <input type="file" name="resumes" multiple required>
+    </div>
+
+    <button type="submit">Analyze Resumes</button>
+</form>
+
+
+{% if message %}
+    <h2>{{ message }}</h2>
+
+    {% for i in range(top_resumes|length) %}
+    <div class="card">
+
+        <div class="rank">
+            🥇 Rank {{ i+1 }} - {{ top_resumes[i] }}
+        </div>
+
+       <div class="progress-bar" style="width: {{ similarity_score[i] | default(0) }}%">
+            {{ similarity_score[i] | default(0) }}%
+        </div>
+
+        <div class="skills">
+            <strong>✅ Matched Skills:</strong><br>
+            {% for skill in matched_skills[i] %}
+                <span class="tag matched">{{ skill }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="skills">
+            <strong>❌ Missing Skills:</strong><br>
+            {% for skill in missing_skills[i] %}
+                <span class="tag missing">{{ skill }}</span>
+            {% endfor %}
+        </div>
+
+    </div>
+    {% endfor %}
+
+{% endif %}
+
+
+</div>
+
+</body>
+</html>
