@@ -7,13 +7,11 @@ An AI-powered web application that matches resumes with job descriptions using N
 ## 📸 Screenshots
 
 ### 🏠 Home Page
-
-![Home](screenshots\home1.png)
-![Home](screenshots\home2.png)
+![Home](screenshots/home1.png)
+![Home](screenshots/home2.png)
 
 ### 📊 Results Dashboard
-
-![Results](screenshots\dash.png)
+![Results](screenshots/dash.png)
 
 ---
 
