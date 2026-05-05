@@ -35,12 +35,6 @@ An AI-powered web application that matches resumes with job descriptions using N
 
 ---
 
-## 📸 Demo
-
-(Add screenshots here later)
-
----
-
 ## 🛠️ Installation
 
 ```bash
