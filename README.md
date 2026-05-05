@@ -4,17 +4,6 @@ An AI-powered web application that matches resumes with job descriptions using N
 
 ---
 
-## 📸 Screenshots
-
-### 🏠 Home Page
-![Home](screenshots/home1.png)
-![Home](screenshots/home2.png)
-
-### 📊 Results Dashboard
-![Results](screenshots/dash.png)
-
----
-
 ## 🔥 Features
 
 * Upload multiple resumes (PDF, DOCX, TXT)
@@ -43,6 +32,17 @@ An AI-powered web application that matches resumes with job descriptions using N
 4. Calculates similarity between job description and resumes
 5. Applies hybrid scoring (semantic + skill matching)
 6. Displays ranked results with matched and missing skills
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+![Home](screenshots/home1.png)
+![Home](screenshots/home2.png)
+
+### 📊 Results Dashboard
+![Results](screenshots/dash.png)
 
 ---
 
